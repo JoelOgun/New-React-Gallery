@@ -10,9 +10,9 @@ import Gallery from "./components/Gallery";
 import NotFound from "./components/NotFound";
 
 //import Apikeys
-
-const apiKey = process.env.REACT_APP_F_API_KEY;
-console.log(process.env.REACT_APP_F_API_KEY);
+import apiKey from "./config";
+//const apiKey = process.env.REACT_APP_F_API_KEY;
+//console.log(process.env.REACT_APP_F_API_KEY);
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
       garifuna: [],
       cats: [],
       dogs: [],
-      computers: [],
+      sunsets: [],
       loading: true,
       searchText: "",
     };
@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount() {
     this.catSearch();
     this.dogSearch();
-    this.computerSearch();
+    this.sunsetSearch();
     this.garifunaDefault();
   }
 
@@ -98,14 +98,14 @@ class App extends Component {
       });
   };
 
-  computerSearch = (query = "Computers") => {
+  sunsetSearch = (query = "Sunsets") => {
     axios
       .get(
         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
       )
       .then((response) => {
         this.setState({
-          computers: response.data.photos.photo,
+          sunsets: response.data.photos.photo,
           loading: false,
         });
       })
@@ -157,10 +157,10 @@ class App extends Component {
             />
             <Route
               exact
-              path="/computers"
+              path="/sunsets"
               render={() => (
                 <Gallery
-                  data={this.state.computers}
+                  data={this.state.sunsets}
                   loading={this.state.loading}
                 />
               )}

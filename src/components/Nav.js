@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 class Nav extends React.Component {
   render() {
     return (
-      <nav class="main-nav">
+      <nav className="main-nav">
         <ul>
           <li>
             <NavLink to="/cats">Cats</NavLink>
@@ -13,7 +13,7 @@ class Nav extends React.Component {
             <NavLink to="/dogs">Dogs</NavLink>
           </li>
           <li>
-            <NavLink to="/computers">Computers</NavLink>
+            <NavLink to="/sunsets">Sunsets</NavLink>
           </li>
         </ul>
       </nav>
